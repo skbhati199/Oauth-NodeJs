@@ -21,7 +21,7 @@
  */
 const clients = [{
   id            : '1',
-  name          : 'Samplr',
+  name          : 'Highway Saathi',
   clientId      : 'abc123',
   clientSecret  : 'ssh-secret',
 }, {
