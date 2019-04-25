@@ -24,6 +24,7 @@ const clients = [{
   name          : 'Highway Saathi',
   clientId      : 'abc123',
   clientSecret  : 'ssh-secret',
+  redirectURI   : 'https://pitangui.amazon.com/api/skill/link/M2PNFTH1O7RECX',
 }, {
   id            : '2',
   name          : 'Samplr2',

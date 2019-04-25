@@ -32,7 +32,7 @@ const expiresIn = { expires_in : config.token.expiresIn };
  */
 server.grant(oauth2orize.grant.code((client, redirectURI, user, ares, done) => {
   const code = utils.createToken({ sub : user.id, exp : config.codeToken.expiresIn });
-  db.authorizationCodes.save(code, client.id, redirectURI, user.id, client.scope)
+  db.authorizationCodes.save(code, client.id, client.redirectURI, user.id, client.scope)
   .then(() => done(null, code))
   .catch(err => done(err));
 }));
@@ -164,7 +164,7 @@ exports.authorization = [
       //          redirectURI provided by the client matches one registered with
       //          the server.  For simplicity, this example does not.  You have
       //          been warned.
-      return done(null, client, redirectURI);
+      return done(null, client, client.redirectURI);
     })
     .catch(err => done(err));
   }), (req, res, next) => {
@@ -180,13 +180,15 @@ exports.authorization = [
           callback(null, { allow: true });
         })(req, res, next);
       } else {
-        res.render('dialog', { transactionID: req.oauth2.transactionID, user: req.user, 
-        client: req.oauth2.client });
+        res.render('dialog', { transactionID: req.oauth2.transactionID,
+          user: req.user,
+          client: req.oauth2.client });
       }
     })
     .catch(() =>
-      res.render('dialog', { transactionID: req.oauth2.transactionID, user: req.user, 
-      client: req.oauth2.client }));
+      res.render('dialog', { transactionID: req.oauth2.transactionID,
+        user: req.user,
+        client: req.oauth2.client }));
   }];
 
 /**
