@@ -104,9 +104,9 @@ setInterval(() => {
 // Create our HTTPS server listening on port 3000.
 // https.createServer(options, app).listen(3000);
 https.createServer({
-    key: fs.readFileSync('./key.pem'),
-    cert: fs.readFileSync('./cert.pem'),
-    passphrase: 'metro'
+  key: fs.readFileSync('./key.pem'),
+  cert: fs.readFileSync('./cert.pem'),
+  passphrase: 'metro',
 }, app)
 .listen(3001);
 console.log('OAuth 2.0 Authorization Server started on port 3001');

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 'use strict';
 
 const db                                   = require('./db');
@@ -7,6 +9,7 @@ const { BasicStrategy }                    = require('passport-http');
 const { Strategy: ClientPasswordStrategy } = require('passport-oauth2-client-password');
 const { Strategy: BearerStrategy }         = require('passport-http-bearer');
 const validate                             = require('./validate');
+const OAuth2Strategy                       = require('passport-oauth').OAuth2Strategy;
 
 /**
  * LocalStrategy
@@ -71,6 +74,10 @@ passport.use(new BearerStrategy((accessToken, done) => {
   .then(token => done(null, token, { scope: '*' }))
   .catch(() => done(null, false));
 }));
+
+
+// Regiser Oauth 2.0
+
 
 // Register serialialization and deserialization functions.
 //
