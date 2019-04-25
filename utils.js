@@ -10,7 +10,7 @@ const jwt  = require('jsonwebtoken');
 // const privateKey = fs.readFileSync('./certs/privatekey.pem');
 // const privateKey = fs.readFileSync('./privatekey.pem');
 // const privateKey = fs.readFileSync('./key.pem');
-const privateKey = fs.readFileSync('./csr_app.pem');
+const privateKey = fs.readFileSync('./key.pem');
 
 /** Public certificate used for verification.  Note: you could also use the private key */
 // const publicKey = fs.readFileSync(path.join(__dirname, 'certs/certificate.pem'));

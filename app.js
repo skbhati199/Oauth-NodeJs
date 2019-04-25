@@ -102,8 +102,9 @@ setInterval(() => {
 // };
 
 const options = {
-  key: fs.readFileSync('./csr_app.pem', 'utf8'),
+  key: fs.readFileSync('./key.pem', 'utf8'),
   cert: fs.readFileSync('./server.crt', 'utf8'),
+  passphrase: 'metro',
 };
 
 // Create our HTTPS server listening on port 3000.
