@@ -105,8 +105,8 @@ setInterval(() => {
 // https.createServer(options, app).listen(3001);
 
 https.createServer({
-  key: fs.readFileSync('./certs/privatekey.pem'),
-  cert: fs.readFileSync('./certs/certificate.pem'),
+  key: fs.readFileSync('./privatekey.pem'),
+  cert: fs.readFileSync('./certificate.pem'),
   // passphrase: 'metro',
 }, app)
 .listen(3001);
