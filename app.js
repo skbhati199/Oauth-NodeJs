@@ -101,14 +101,19 @@ setInterval(() => {
 //   cert : fs.readFileSync(path.join(__dirname, 'certs/certificate.pem')),
 // };
 
-// Create our HTTPS server listening on port 3000.
-// https.createServer(options, app).listen(3001);
+const options = {
+  key: fs.readFileSync('./csr_app.pem', 'utf8'),
+  cert: fs.readFileSync('./server.crt', 'utf8'),
+};
 
-https.createServer({
-  key: fs.readFileSync('./key.pem'),
-  cert: fs.readFileSync('./cert.pem'),
-  passphrase: 'metro',
-}, app)
-.listen(3001);
+// Create our HTTPS server listening on port 3000.
+https.createServer(options, app).listen(3001);
+
+// https.createServer({
+//   key: fs.readFileSync('./key.pem'),
+//   cert: fs.readFileSync('./cert.pem'),
+//   passphrase: 'metro',
+// }, app)
+// .listen(3001);
 
 console.log('OAuth 2.0 Authorization Server started on port 3001');
