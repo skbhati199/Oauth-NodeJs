@@ -29,7 +29,7 @@ const publicKey = fs.readFileSync('./server.crt');
  * @param  {String} sub - The subject or identity of the token.
  * @return {String} The JWT Token
  */
-exports.createToken = ({ exp = 3600, sub = '' } = {}) => {
+exports.createToken = ({ exp = 6 * 60, sub = '' } = {}) => {
   const token = jwt.sign({
     jti : uuid(),
     sub,
