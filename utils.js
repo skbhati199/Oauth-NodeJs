@@ -29,7 +29,7 @@ exports.createToken = ({ exp = 3600, sub = '' } = {}) => {
     sub,
     exp : Math.floor(Date.now() / 1000) + exp,
   }, privateKey, {
-    algorithm: 'RS256',
+    algorithm: 'RS512',
   });
 
   return token;
